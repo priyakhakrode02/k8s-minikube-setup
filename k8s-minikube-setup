@@ -1,6 +1,9 @@
 #Install Minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
 rpm -Uvh minikube-latest.x86_64.rpm
+yum install docker -y
+systemctl start docker 
+docker ps
 minikube start --force
 
 #Install kubectl
