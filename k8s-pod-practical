@@ -1,0 +1,34 @@
+#practical 1
+
+kubectl get pods    #lists all running pods
+
+kubectl run my-pod --image=httpd   #creates pod named "my-pod" contains httpd image in container.
+
+kubectl get pods   #shows my-pod running.
+
+
+
+# manifest file to create my-pod. 
+
+apiVersion: v1
+kind: Pod
+metadata:
+      name: "my-pod"
+      labels:
+          dc: In
+	  team: "prodTeam"
+spec:
+   containers:
+      - name: "k8s-container"
+        image: httpd
+
+
+
+
+kubectl apply -f pod.yml
+
+kubectl get pods
+
+docker exec -it minikube bash    #takes you inside the minikube docker container.
+
+docker ps                        #shows running image, inside "k8s-container"

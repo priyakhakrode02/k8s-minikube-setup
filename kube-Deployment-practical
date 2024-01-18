@@ -1,0 +1,60 @@
+
+kubectl get deployment
+
+vim deployment.yml
+
+
+#manifest file for deployment.
+
+apiVersion: v1
+kind: Deployment
+metadata:
+    name: "my-deployment"
+
+spec:
+  replicas: 3
+  selector:
+      matchLabels:
+           dc: "In"
+  
+  template:
+     metadata:
+          name: "deployment-pod"
+	  labels:
+	      dc: "In"
+
+ 
+  spec:
+     containers:
+        - name: "k8s-container"
+	  image: jinny1/phpweb
+
+
+
+kubectl get pods
+
+kubectl get svc
+
+kubectl delete all --all
+
+kubectl apply -f deployment.yml
+
+kubectl get deployment
+
+kubectl get pods     #3 pods running.
+
+kubectl delete pod/my-deployment   #will delete one of the running pods
+
+kubectl get pods                   #you will see even deleting one of the three pods it will automatically creates new pod in replacement of that deleted pod.
+
+
+#autoscaling
+
+kubectl scale deployment/mydeployment --replicas=10
+
+kubectl get deployment
+
+kubectl get pods
+
+kubectl scale deployment/mydeployment --replicas=1
+

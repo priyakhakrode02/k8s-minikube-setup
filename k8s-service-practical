@@ -1,0 +1,99 @@
+#practical 1
+
+kubectl get services
+ 
+
+vim service.yml
+
+#manifest file to create service.
+
+service is a kubernetes resource to Expose service on the network, it is also a NodePort and works as a LoadBalancer.
+
+apiVersion: v1
+kind: Service
+metadata:
+    name: "my-service"
+spec:
+   selector:
+       dc: In
+   ports:
+    - port: 80
+      targetPort: 3765
+
+
+kubectl apply -f service.yml
+
+kubectl get svc
+
+kubectl describe svc/my-service
+
+
+#practical 2
+
+docker pull jinny1/phpweb
+
+docker run -dit --name k8s-container -p 80:80 jinny1/phpweb
+
+
+#manifest file to create pod containing jinny1/phpweb image in container.
+
+apiVersion: v1
+kind: Pod
+metadata:
+   name: "jinny-pod"
+   labels:
+       dc: In
+       team: "prodTeam"
+
+spec:
+   containers:
+        - name: "k8s-container"
+	  image: jinny1/phpweb
+
+
+
+#manifest file for service as LoadBalancing.
+
+
+apiVersion: v1
+kind: Service
+metadata:
+    name: "my-service"
+spec:
+   selector:
+       dc: In
+   ports:
+    - port: 80
+      targetPort: 80
+
+   type: LoadBalancer
+
+
+
+kubectl apply -f jinny-pod.yml
+
+kubectl get pods
+
+
+kubectl apply -f services.yml
+
+kubectl get svc
+
+
+minikube ip
+
+curl "shown_minikube-ip":port
+
+
+
+
+
+
+
+
+
+
+
+
+
+
