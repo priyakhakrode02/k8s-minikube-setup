@@ -3,8 +3,6 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-latest
 rpm -Uvh minikube-latest.x86_64.rpm
 minikube start --force
 
-
-
 #Install kubectl
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.3/2023-11-14/bin/linux/amd64/kubectl
 chmod +x ./kubectl 
