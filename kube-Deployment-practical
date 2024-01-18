@@ -3,7 +3,6 @@ kubectl get deployment
 
 vim deployment.yml
 
-
 #manifest file for deployment.
 
 apiVersion: v1
@@ -22,13 +21,10 @@ spec:
           name: "deployment-pod"
 	  labels:
 	      dc: "In"
-
- 
-  spec:
-     containers:
+    spec:
+       containers:
         - name: "k8s-container"
 	  image: jinny1/phpweb
-
 
 
 kubectl get pods
