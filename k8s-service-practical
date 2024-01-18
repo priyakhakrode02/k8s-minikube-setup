@@ -2,7 +2,6 @@
 
 kubectl get services
  
-
 vim service.yml
 
 #manifest file to create service.
@@ -26,7 +25,6 @@ kubectl apply -f service.yml
 kubectl get svc
 
 kubectl describe svc/my-service
-
 
 #practical 2
 
