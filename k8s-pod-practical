@@ -7,7 +7,6 @@ kubectl run my-pod --image=httpd   #creates pod named "my-pod" contains httpd im
 kubectl get pods   #shows my-pod running.
 
 
-
 # manifest file to create my-pod. 
 
 apiVersion: v1
@@ -21,8 +20,6 @@ spec:
    containers:
       - name: "k8s-container"
         image: httpd
-
-
 
 
 kubectl apply -f pod.yml
