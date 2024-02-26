@@ -6,7 +6,16 @@ systemctl start docker
 docker ps
 minikube start --force
 
+#install minikube for Debian packages like Ubuntu.
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+sudo dpkg -i minikube_latest_amd64.deb
+
+#Start minikube cluster.
+minikube start
+
 #Install kubectl
+
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.3/2023-11-14/bin/linux/amd64/kubectl
 chmod +x ./kubectl 
 cp ./kubectl /usr/bin/
